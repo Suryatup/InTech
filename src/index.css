@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Luxury Gold & Slate Variables ────────────────────────── */
+:root {
+  --primary: #D4AF37; /* Brushed Gold */
+  --primary-dark: #B8860B; /* Dark Goldenrod */
+  --primary-light: #F9E5BC; /* Champagne */
+  --secondary: #E5E4E2; /* Platinum/Silver */
+  --accent: #CFB53B; /* Old Gold */
+  --highlight: #FFFFFF; 
+  
+  --primary-glow: rgba(212, 175, 55, 0.2);
+  --primary-glow-strong: rgba(212, 175, 55, 0.4);
+
+  --bg-dark: #080808; /* Cohesive with image backgrounds */
+  --bg-card: #121212; 
+  --bg-section: #0B0B0B;
+  --bg-nav: rgba(10, 10, 10, 0.85);
+
+  --text-white: #FCFBF7;
+  --text-light: #E7E7E7;
+  --text-muted: #8E8E8E;
+
+  --border: rgba(212, 175, 55, 0.15);
+  --border-hover: rgba(212, 175, 55, 0.4);
+
+  --radius-sm: 8px; /* Shaper for luxury feel */
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+
+  --shadow-card: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 50px rgba(212, 175, 55, 0.1);
+  
+  --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Content-Aware Typography ────────────────────────────── */
+:root {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #080808;
+  background-image: 
+    linear-gradient(to bottom, rgba(8, 8, 8, 0.8), rgba(8, 8, 8, 0.95)),
+    url('/hero-luxury.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: var(--text-white);
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* ── Utility ──────────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-white);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.section-title span {
+  background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header .section-subtitle {
+  margin: 0 auto;
+}
+
+/* ── Gradient Text ────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #fff 10%, var(--primary) 60%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #000;
+  font-weight: 800;
+  box-shadow: 0 10px 40px -10px var(--primary-glow-strong);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px -15px var(--primary-glow-strong);
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--primary-glow);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ── Card Base ────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(24, 24, 27, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 0 25px rgba(16, 185, 129, 0.1);
+  transform: translateY(-8px);
+  background: rgba(39, 39, 42, 0.5);
+}
+
+/* ── Glow dot decorations ─────────────────────────────────── */
+.glow-dot {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scroll Reveal Animations ─────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* delay variants */
+.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.delay-4 {
+  transition-delay: 0.4s;
+}
+
+.delay-5 {
+  transition-delay: 0.5s;
+}
+
+.delay-6 {
+  transition-delay: 0.6s;
+}
